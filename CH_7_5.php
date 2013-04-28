@@ -16,9 +16,9 @@ if (MDB2::isError($db)) {
 // フォームデータの安全な挿入
 
 $sth = $db -> prepare('INSERT INTO dishes (dish_name) VALUES (?)');
-$sth = $db -> execute(array($_POST['new_dish_name']));
+$sth -> execute(array($_POST['new_dish_name']));
 
 // 複数のプレースホルダを使用する
 
 $sth = $db -> prepare('INSERT INTO dishes (dish_name, price, is_spicy) VALUES (?, ?, ?)');
-$sth = $db -> execute(array($_POST['new_dish_name'], $_POST['new_price'], $_POST['is_spicy']));
+$sth -> execute(array($_POST['new_dish_name'], $_POST['new_price'], $_POST['is_spicy']));
